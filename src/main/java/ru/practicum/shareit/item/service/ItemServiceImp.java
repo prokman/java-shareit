@@ -24,20 +24,20 @@ public class ItemServiceImp implements ItemService {
     public ItemDto createItem(ItemCreateRequest itemCreateRequest, long userId) {
         itemCreateRequest.setUserId(userId);
         UserDto userDto = userService.getUser(userId);
-        Item item = ItemMapper.ItemCreateRequestToItem(itemCreateRequest);
-        return ItemMapper.ItemToDto(itemStorageInMemory.createItem(item));
+        Item item = ItemMapper.itemCreateRequestToItem(itemCreateRequest);
+        return ItemMapper.itemToDto(itemStorageInMemory.createItem(item));
     }
 
     @Override
     public ItemDto getItem(long itemId, long userId) {
-        return ItemMapper.ItemToDto(itemStorageInMemory.getItem(itemId, userId).orElseThrow());
+        return ItemMapper.itemToDto(itemStorageInMemory.getItem(itemId, userId).orElseThrow());
     }
 
     @Override
     public Set<ItemDto> getAllItem(long userId) {
         return itemStorageInMemory.getAllItem(userId)
                 .stream()
-                .map(ItemMapper::ItemToDto)
+                .map(ItemMapper::itemToDto)
                 .collect(Collectors.toSet());
     }
 
@@ -45,15 +45,15 @@ public class ItemServiceImp implements ItemService {
     public ItemDto updateItem(ItemUpdateRequest itemUpdateRequest, long itemId, long userId) {
         itemUpdateRequest.setId(itemId);
         itemUpdateRequest.setUserId(userId);
-        Item item = ItemMapper.ItemUpdateRequestToItem(itemUpdateRequest);
-        return ItemMapper.ItemToDto(itemStorageInMemory.updateItem(item));
+        Item item = ItemMapper.itemUpdateRequestToItem(itemUpdateRequest);
+        return ItemMapper.itemToDto(itemStorageInMemory.updateItem(item));
     }
 
     @Override
     public Set<ItemDto> itemSearch(long userId, String searchString) {
         return itemStorageInMemory.itemSearch(userId, searchString)
                 .stream()
-                .map(ItemMapper::ItemToDto)
+                .map(ItemMapper::itemToDto)
                 .collect(Collectors.toSet());
     }
 }

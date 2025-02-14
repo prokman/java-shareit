@@ -20,13 +20,13 @@ public class UserServiceImpl implements UserService {
     public UserDto createUser(UserCreateRequest userCreateRequest) {
         User user = UserMapper.userCreateRequestToUser(userCreateRequest);
         isEmailDuplicate(user);
-        return UserMapper.UserToDto(userStorageInMemory.createUser(user));
+        return UserMapper.userToDto(userStorageInMemory.createUser(user));
     }
 
     @Override
     public UserDto getUser(long userId) {
         return userStorageInMemory.getUser(userId)
-                .map(UserMapper::UserToDto)
+                .map(UserMapper::userToDto)
                 .orElseThrow(() -> new NotFoundException("Пользователь с ид " + userId + " не найден"));
     }
 
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     public UserDto updateUser(UserUpdateRequest userUpdateRequest, long userId) {
         User newUser = UserMapper.userUpdateRequestToUser(userUpdateRequest, userId);
         isEmailDuplicate(newUser);
-        return UserMapper.UserToDto(userStorageInMemory.updateUser(newUser));
+        return UserMapper.userToDto(userStorageInMemory.updateUser(newUser));
 
     }
 
