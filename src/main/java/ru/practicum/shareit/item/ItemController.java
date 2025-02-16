@@ -20,7 +20,7 @@ import java.util.Set;
 @RequestMapping("/items")
 @RequiredArgsConstructor
 public class ItemController {
-    final ItemService itemService;
+    private final ItemService itemService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
