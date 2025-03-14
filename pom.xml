@@ -129,7 +129,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.3.1</version>
@@ -149,7 +149,7 @@
 						<phase>compile</phase>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 
 		</plugins>
 		<pluginManagement>
@@ -163,32 +163,32 @@
 						</systemPropertyVariables>
 					</configuration>
 				</plugin>
-<!--				<plugin>-->
-<!--					<groupId>org.apache.maven.plugins</groupId>-->
-<!--					<artifactId>maven-checkstyle-plugin</artifactId>-->
-<!--					<version>3.3.1</version>-->
-<!--					<configuration>-->
-<!--						<configLocation>checkstyle.xml</configLocation>-->
-<!--						<failOnViolation>true</failOnViolation>-->
-<!--						<logViolationsToConsole>true</logViolationsToConsole>-->
-<!--						<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
-<!--					</configuration>-->
-<!--					<executions>-->
-<!--						<execution>-->
-<!--							<goals>-->
-<!--								<goal>check</goal>-->
-<!--							</goals>-->
-<!--							<phase>compile</phase>-->
-<!--						</execution>-->
-<!--					</executions>-->
-<!--					<dependencies>-->
-<!--						<dependency>-->
-<!--							<groupId>com.puppycrawl.tools</groupId>-->
-<!--							<artifactId>checkstyle</artifactId>-->
-<!--							<version>10.3</version>-->
-<!--						</dependency>-->
-<!--					</dependencies>-->
-<!--				</plugin>-->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>3.3.1</version>
+					<configuration>
+						<configLocation>checkstyle.xml</configLocation>
+						<failOnViolation>true</failOnViolation>
+						<logViolationsToConsole>true</logViolationsToConsole>
+						<includeTestSourceDirectory>true</includeTestSourceDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+							<phase>compile</phase>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>10.3</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 				<plugin>
 					<groupId>com.github.spotbugs</groupId>
 					<artifactId>spotbugs-maven-plugin</artifactId>
