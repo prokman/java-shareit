@@ -25,14 +25,4 @@ public class BookingMapper {
         );
         return bookingDtoCreateResponse;
     }
-//    public static BookingDtoPatchResponse bookingToPatchResponse (Booking booking) {
-//        BookingDtoPatchResponse bookingDtoPatchResponse = new BookingDtoPatchResponse(booking.getId(),
-//                booking.getStartDate(), booking.getEndDate(), booking.getStatus(),
-//                new BookingDtoResponse
-//                        .ItemDto(booking.getBookedItem().getId(), booking.getBookedItem().getName()),
-//                new BookingDtoResponse.UserDto(booking.getBooker().getId())
-//        );
-//        return bookingDtoPatchResponse;
-//    }
-
 }

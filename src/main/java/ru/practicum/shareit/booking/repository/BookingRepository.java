@@ -59,12 +59,4 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             " And booking.booker.id = :bookerId"
     )
     Set<Booking> findBookingByItemIdUserIdwithItem(Long bookerId, Long itemId);
-
-
-
-
-//    @Query("select booking from Bookings booking " +
-//            " where booking.status = :status " +
-//            " and booking.id = :bookerId"
-//    )
 }

@@ -25,8 +25,6 @@ public class BookingDtoResponse {
 
     public record UserDto(@Getter Long id) {
     }
-
-
 }
 
 

@@ -43,9 +43,6 @@ public class ItemMapper {
         itemDtoForOwner.setName(item.getName());
         itemDtoForOwner.setDescription(item.getDescription());
         itemDtoForOwner.setAvailable(item.getAvailable());
-        //List<CommentDto> commentDtoList;
-//        itemDtoForOwner.setLastBooking(lastBooking);
-//        itemDtoForOwner.setNextBooking(nextBooking);
         return itemDtoForOwner;
     }
 
