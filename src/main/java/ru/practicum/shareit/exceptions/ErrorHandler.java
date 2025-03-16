@@ -19,4 +19,11 @@ public class ErrorHandler {
     public ErrorResponse handleNotFoundException(NotFoundException e) {
         return new ErrorResponse("Объект не найден код - 404", e.getMessage());
     }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleBadRequestException(BadRequestException e) {
+        return new ErrorResponse("некорректный запрос код - 400", e.getMessage());
+    }
+
 }
