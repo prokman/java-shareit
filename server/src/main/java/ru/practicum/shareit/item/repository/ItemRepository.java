@@ -19,7 +19,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> { //, Querydsl
     List<Item> findByRequestIdIn(List<Long> requestId);
 
     @EntityGraph(attributePaths = {"owner"})
-    List<Item> findByRequestId(Long RequestId);
+    List<Item> findByRequestId(Long requestId);
 
     @Query("select item from Item item" +
             " where item.available = true " +
