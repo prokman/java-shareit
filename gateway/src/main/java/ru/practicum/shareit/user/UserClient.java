@@ -1,7 +1,5 @@
 package ru.practicum.shareit.user;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -16,6 +14,7 @@ import ru.practicum.shareit.user.dto.UserUpdateRequest;
 @Service
 public class UserClient extends BaseClient {
     private static final String API_PREFIX = "/users";
+
     @Autowired
     public UserClient(@Value("${shareit-server.url}") String serverUrl, RestTemplateBuilder builder) {
         super(
@@ -28,7 +27,7 @@ public class UserClient extends BaseClient {
 
 
     public ResponseEntity<Object> getUser(long userId) {
-        return get("/"+userId);
+        return get("/" + userId);
     }
 
     public ResponseEntity<Object> createUser(UserCreateRequest userCreateRequest) {
@@ -36,10 +35,10 @@ public class UserClient extends BaseClient {
     }
 
     public ResponseEntity<Object> updateUser(UserUpdateRequest userUpdateRequest, long userId) {
-        return patch("/"+userId, userUpdateRequest);
+        return patch("/" + userId, userUpdateRequest);
     }
 
     public ResponseEntity<Object> removeUser(long userId) {
-        return delete("/"+userId);
+        return delete("/" + userId);
     }
 }

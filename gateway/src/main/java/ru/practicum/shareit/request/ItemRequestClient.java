@@ -12,11 +12,9 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 import ru.practicum.shareit.client.BaseClient;
-import ru.practicum.shareit.request.dto.ItemAllRequestDto;
-import ru.practicum.shareit.request.dto.ItemRequestDto;
+
 import ru.practicum.shareit.request.dto.ItemRequestDtoRequest;
 
-import java.util.List;
 
 @Service
 @Slf4j
@@ -35,12 +33,12 @@ public class ItemRequestClient extends BaseClient {
 
 
     public ResponseEntity<Object> getRequests(@Valid @Positive long userId) {
-        return get("",userId);
+        return get("", userId);
     }
 
     public ResponseEntity<Object> getRequest(@Valid @Positive @NotNull long userId,
                                              @Valid @Positive @NotNull long requestId) {
-        return get("/"+requestId,userId);
+        return get("/" + requestId, userId);
     }
 
     public ResponseEntity<Object> getAllRequests() {

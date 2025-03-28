@@ -1,8 +1,5 @@
 package ru.practicum.shareit.item;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,12 +22,8 @@ public class ItemClient extends BaseClient {
 
     @Autowired
     public ItemClient(@Value("${shareit-server.url}") String serverUrl, RestTemplateBuilder builder) {
-        super(
-                builder
-                        .uriTemplateHandler(new DefaultUriBuilderFactory(serverUrl + API_PREFIX))
-                        .requestFactory(() -> new HttpComponentsClientHttpRequestFactory())
-                        .build()
-        );
+        super(builder.uriTemplateHandler(new DefaultUriBuilderFactory(serverUrl + API_PREFIX))
+                .requestFactory(() -> new HttpComponentsClientHttpRequestFactory()).build());
     }
 
 
@@ -47,18 +40,16 @@ public class ItemClient extends BaseClient {
     }
 
     public ResponseEntity<Object> itemSearch(long ownerId, String text) {
-        Map<String, Object> parameters = Map.of(
-                "text", text
-        );
+        Map<String, Object> parameters = Map.of("text", text);
         log.info("itemClient myFlogs with text {}, ownerId={}, param={}", text, ownerId, parameters);
         return get("/search?text={text}", ownerId, parameters);
     }
 
     public ResponseEntity<Object> updateItem(ItemUpdateRequest itemUpdateRequest, long itemId, long ownerId) {
-        return patch("/"+itemId,ownerId, itemUpdateRequest);
+        return patch("/" + itemId, ownerId, itemUpdateRequest);
     }
 
     public ResponseEntity<Object> createComment(CommentDtoRequest commentDtoRequest, Long itemId, Long userId) {
-        return post("/"+itemId+"/comment",userId, commentDtoRequest);
+        return post("/" + itemId + "/comment", userId, commentDtoRequest);
     }
 }
