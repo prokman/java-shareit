@@ -24,7 +24,7 @@ public class ItemMapper {
         item.setName(itemCreateRequest.getName());
         item.setDescription(itemCreateRequest.getDescription());
         item.setAvailable(itemCreateRequest.getAvailable());
-        if (itemCreateRequest.getRequestId()!=null) {
+        if (itemCreateRequest.getRequestId() != null) {
             item.setRequestId(itemCreateRequest.getRequestId());
         }
         return item;
@@ -65,7 +65,7 @@ public class ItemMapper {
         return itemDtoWithComments;
     }
 
-    public static ItemDtoForRequest itemToDtoForRequest (Item item) { //Long ownerId
+    public static ItemDtoForRequest itemToDtoForRequest(Item item) { //Long ownerId
         ItemDtoForRequest itemDtoForRequest = new ItemDtoForRequest();
         itemDtoForRequest.setId(item.getId());
         itemDtoForRequest.setName(item.getName());

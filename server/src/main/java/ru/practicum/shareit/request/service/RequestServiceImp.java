@@ -42,15 +42,15 @@ public class RequestServiceImp implements RequestService {
         List<ItemRequestDto> itemRequestDtoList = itemRequestList
                 .stream()
                 .map(itemRequest -> {
-                            ItemRequestDto dto = RequestMapper.itemRequestToDto(itemRequest, null);
-                            dto.setItems(
-                                    itemList
-                                            .stream()
-                                            .filter(item -> item.getRequestId().equals(dto.getId()))
-                                            .map(ItemMapper::itemToDtoForRequest).toList()
-                            );
-                            return dto;
-                        })
+                    ItemRequestDto dto = RequestMapper.itemRequestToDto(itemRequest, null);
+                    dto.setItems(
+                            itemList
+                                    .stream()
+                                    .filter(item -> item.getRequestId().equals(dto.getId()))
+                                    .map(ItemMapper::itemToDtoForRequest).toList()
+                    );
+                    return dto;
+                })
                 .toList();
         return itemRequestDtoList;
     }
@@ -62,7 +62,7 @@ public class RequestServiceImp implements RequestService {
             throw new NotFoundException("Пользователь с ид " + userId + " не найден");
         }
         ItemRequest itemRequest = requestRepository.findById(requestId)
-                .orElseThrow(()->new NotFoundException("Запрос с ид " + requestId + " не найден"));
+                .orElseThrow(() -> new NotFoundException("Запрос с ид " + requestId + " не найден"));
         List<Item> itemList = itemRepository.findByRequestId(requestId);
         List<ItemDtoForRequest> itemDtoForRequestList = itemList
                 .stream()

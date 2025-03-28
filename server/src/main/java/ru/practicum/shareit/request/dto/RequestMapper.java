@@ -15,7 +15,7 @@ public class RequestMapper {
         return itemRequest;
     }
 
-    public static ItemRequestDto itemRequestToDto (ItemRequest itemRequest, List<ItemDtoForRequest> listOfItemsOffer) {
+    public static ItemRequestDto itemRequestToDto(ItemRequest itemRequest, List<ItemDtoForRequest> listOfItemsOffer) {
         ItemRequestDto itemRequestDto = new ItemRequestDto();
         itemRequestDto.setId(itemRequest.getId());
         itemRequestDto.setDescription(itemRequest.getDescription());
@@ -24,7 +24,7 @@ public class RequestMapper {
         return itemRequestDto;
     }
 
-    public static ItemAllRequestDto itemAllRequestDto (ItemRequest itemRequest) {
+    public static ItemAllRequestDto itemAllRequestDto(ItemRequest itemRequest) {
         ItemAllRequestDto itemAllRequestDto = new ItemAllRequestDto();
         itemAllRequestDto.setId(itemRequest.getId());
         itemAllRequestDto.setDescription(itemRequest.getDescription());
